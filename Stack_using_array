@@ -1,0 +1,94 @@
+#include <iostream>
+const int max_size = 100;
+using namespace std;
+
+class Stack{
+private:
+    int arr[max_size];
+    int top = -1;
+public:
+
+    void push(int value)
+    {
+        if (isFull()){
+            cout << "Stack Overflow.\n";
+            return;
+        }
+        arr[++top] = value;
+    }
+
+
+    void pop()
+    {
+        if (isEmpty()){
+            cout << "Stack Underflow.\n";
+            return;
+        }
+        --top;
+    }
+
+
+    void show()
+    {
+        if (top < 0){
+            cout << "Stack is Empty.";
+            return;
+        }
+        cout << "Stack elements : ";
+        for (int i;i<=top;i++)
+            cout << arr[i] << " ";
+        cout << "\n";
+    }
+
+
+    bool isEmpty() const
+    {
+        return top < 0;
+    }
+
+
+    bool isFull() const
+    {
+        return top >= max_size-1;
+    }
+
+};
+
+
+int main()
+{
+    Stack myStack;
+    cout << "1. For Push.\n2. For Pop.\n3. For Show.\n4. For isEmpty.\n5. For isFull.\n0. For Exit.";
+    while(true)
+    {
+        int choice;
+        cout << "\nEnter command : ";
+        cin >> choice;
+        switch (choice)
+        {
+            case 1:
+                int value;
+                cout << "Enter value to be Pushed : ";
+                cin >> value;
+                myStack.push(value);
+                break;
+            case 2:
+                myStack.pop();
+                break;
+            case 3:
+                myStack.show();
+                break;
+            case 4:
+                cout << "Is Empty ? : " << (myStack.isEmpty() ? "YES" : "NO");
+                break;
+            case 5:
+                cout << "Is Full ? : " << (myStack.isFull() ? "YES" : "NO");
+                break;
+            case 0:
+                return 0;
+            default:
+                cout << "Enter a valid command.";
+        }
+
+    }
+}
