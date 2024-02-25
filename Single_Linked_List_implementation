@@ -1,0 +1,112 @@
+#include <iostream>
+using namespace std;
+struct node{
+    int data;
+    node* next;
+};
+class LinkedList{
+private:
+    node* head = nullptr;
+public:
+    void insertBegin(int item){
+        node* newNode = new node(item, nullptr);
+        if (head == nullptr)
+            head = newNode;
+        else{
+            newNode->next = head;
+            head = newNode;
+        }
+    }
+
+    void insertEnd(int item){
+        node* newNode = new node(item, nullptr);
+        if (head == nullptr)
+            head = newNode;
+        node* curr = head;
+        while(curr->next != nullptr)
+            curr = curr->next;
+        curr->next = newNode;
+    }
+
+    void deleteBegin(){
+        if (head == nullptr){
+            cout << "List is Empty. cannot delete\n";
+            return;
+        }
+        node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    void deleteEnd(){
+        if (head == nullptr){
+            cout << "List is Empty. cannot delete\n";
+            return;
+        }
+        if (head->next == nullptr){
+            head = nullptr;
+        }
+        else{
+            node* curr = head;
+            node* prev = nullptr;
+            while (curr->next != nullptr){
+                prev = curr;
+                curr = curr->next;
+            }
+            delete curr;
+            prev->next = nullptr;
+        }
+    }
+
+    void show()
+    {
+        if (head == nullptr){
+            cout << "List is empty.\n";
+            return;
+        }
+        node* curr = head;
+        cout << "List elements : ";
+        while(curr != nullptr){
+            cout << curr->data << " ";
+            curr = curr->next;
+        }
+        cout << '\n';
+    }
+};
+
+int main()
+{
+    LinkedList myList;
+    int choice,item;
+    cout << "1.insert from Begin.\n2.insert from End.\n3.delete from Begin.\n4.delete from End.\n5.Show List.\n0. Exit the program.\n";
+    while(true){
+        cout << "Enter your choice : ";
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                cout << "Enter value to be inserted : ";
+                cin >> item;
+                myList.insertBegin(item);
+                break;
+            case 2:
+                cout << "Enter value to be inserted : ";
+                cin >> item;
+                myList.insertEnd(item);
+                break;
+            case 3:
+                myList.deleteBegin();
+                break;
+            case 4:
+                myList.deleteEnd();
+                break;
+            case 5:
+                myList.show();
+                break;
+            case 0:
+                return 0;
+            default:
+                cout << "Enter a valid choice.\n";
+                break;
+        }
+    }
+}
