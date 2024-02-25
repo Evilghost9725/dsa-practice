@@ -1,0 +1,80 @@
+#include <iostream>
+const int max_size = 100;
+using namespace std;
+
+class Stack{
+private:
+    char arr[max_size];
+    int top = -1;
+public:
+    
+    void push(char value){
+        if(isFull()){
+            return;
+        }
+        arr[++top] = value;
+    }
+    
+    void pop(){
+        if(isEmpty()){
+            return;
+        }
+        --top;
+    }
+    
+    char getTop(){
+        if (isEmpty()){
+            return '\0';
+        }
+        return arr[top];
+    }
+    
+    bool isEmpty() const{
+        return top < 0;
+    }
+    
+    bool isFull() const{
+        return top >= max_size-1;
+    }
+    
+};
+
+
+bool isBalanced(const char* exp){
+    Stack myStack;
+    int i = 0;
+    
+    while (exp[i] != '\0' )
+    {
+        char curr_char = exp[i];
+        if (curr_char == '(' || curr_char == '[' || curr_char == '{')
+            myStack.push(curr_char);
+        
+        else if (curr_char == ')' || curr_char == ']' || curr_char == '}') {
+            if (myStack.isEmpty())
+                return false;
+            char top_char = myStack.getTop();
+            myStack.pop();
+
+            if ((curr_char == ')' && top_char != '(') || (curr_char == ']' && top_char != '[') ||
+                (curr_char == '}' && top_char != '{'))
+                return false;
+        }
+        ++i;
+    }
+    return myStack.isEmpty();
+}
+
+
+int main()
+{
+    char exp[max_size];
+    cout << "Enter an expression : ";
+    cin >> exp;
+    
+    if (isBalanced(exp))
+        cout << "The expression has balanced parentheses.\n";
+    else
+        cout << "The expression does not have balanced parentheses.\n";
+    return 0;
+}
