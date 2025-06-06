@@ -9,8 +9,6 @@ I'm organizing my learning topic-wise to stay consistent and review problem-solv
 - Linked Lists
 - Trees
 - Recursion & Backtracking
-- Dynamic Programming
-- Graphs
 - Greedy
 - Heaps & Priority Queues
 - Sliding Window
