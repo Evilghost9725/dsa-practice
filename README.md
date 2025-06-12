@@ -1,26 +1,37 @@
-# DSA Practice
+DSA Practice
 
-This repository contains my Data Structures and Algorithms (DSA) practice files.  
-I'm organizing my learning topic-wise to stay consistent and review problem-solving patterns.
+This repository contains my Data Structures and Algorithms (DSA) practice files.
+I'm organizing everything topic-wise (and now platform-wise too) to stay consistent and build a killer intuition for patterns.
+🧠 Topics Covered
 
-## Topics Covered
+    Arrays
 
-- Arrays
-- Linked Lists
-- Trees
-- Recursion & Backtracking
-- Greedy
-- Heaps & Priority Queues
-- Sliding Window
-- Binary Search
+    Linked Lists
 
-## Format
+    Trees
 
-Each folder contains `.cpp` solutions to related problems.  
-I'm adding minimal comments or links to original problems wherever possible.
+    Recursion & Backtracking
 
-## Goal
+    Greedy
 
-- Build consistency
-- Track my growth
-- Revise anytime before interviews or contests
+    Heaps & Priority Queues
+
+    Sliding Window
+
+    Binary Search
+
+⚔️ Platforms
+
+    Codeforces — Added recently for competitive grind and rating gains
+
+📁 Format
+
+Each folder contains .cpp solutions to related problems.
+Minimal comments. Problem links wherever I felt generous. It’s all about the reps.
+🎯 Goals
+
+    Build consistency
+
+    Track my growth
+
+    Revise anytime before interviews or contests
